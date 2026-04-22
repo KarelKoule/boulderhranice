@@ -1,0 +1,33 @@
+import type { Dictionary } from "@/lib/getDictionary";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+type Props = {
+  dict: Dictionary["header"];
+};
+
+export default function Header({ dict }: Props) {
+  return (
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-surface-dark/90 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <span className="text-lg font-bold tracking-tight text-white">
+          {dict.title}
+        </span>
+        <nav className="flex items-center gap-6">
+          <a
+            href="#how-to"
+            className="text-sm text-stone-400 transition-colors hover:text-glow"
+          >
+            {dict.nav.howTo}
+          </a>
+          <a
+            href="#gallery"
+            className="text-sm text-stone-400 transition-colors hover:text-glow"
+          >
+            {dict.nav.gallery}
+          </a>
+          <LanguageSwitcher />
+        </nav>
+      </div>
+    </header>
+  );
+}

@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "title": "Boulder Hranice",
+    "description": "Venkovní umělá boulderová stěna v Hranicích"
+  },
+  "header": {
+    "title": "Boulder Hranice",
+    "nav": {
+      "howTo": "Jak bouldrovat",
+      "gallery": "Galerie stěny"
+    }
+  },
+  "hero": {
+    "title": "Boulder Hranice",
+    "subtitle": "Venkovní umělá boulderová stěna",
+    "cta": "Prohlédnout stěnu"
+  },
+  "howTo": {
+    "title": "Jak bouldrovat",
+    "intro": "Bouldering je lezení na nízkých stěnách bez lana. Tady je vše, co potřebujete vědět, abyste mohli začít.",
+    "steps": [
+      {
+        "title": "Co je bouldering?",
+        "description": "Bouldering je forma lezení na nízkých stěnách (do cca 4 metrů) bez lan. Leze se nad crash padem, který tlumí pády."
+      },
+      {
+        "title": "Startovní pozice",
+        "description": "Každý boulder začíná oběma rukama na označených startovních chytech. Nohy mohou být na libovolných chytech patřících k boulderu (stejná barva/značení)."
+      },
+      {
+        "title": "Dokončení boulderu",
+        "description": "Boulder je úspěšně zdolán, když držíte finální (vrchní) chyt oběma rukama v kontrolované, stabilní pozici."
+      },
+      {
+        "title": "Sledujte barvy",
+        "description": "Každý boulder je označen chyty stejné barvy nebo štítky. Používejte pouze chyty, které patří k vaší cestě."
+      },
+      {
+        "title": "Bezpečný pád",
+        "description": "Při pádu se snažte dopadnout na obě nohy s pokrčenými koleny na crash pad. Vyhněte se zachytávání pádu rukama."
+      },
+      {
+        "title": "Improvizujte vlastní cestu",
+        "description": "Stěna je plná chytů — nemusíte se držet pouze označených boulderů. Vyberte si libovolné chyty a vytvořte si vlastní cestu. Použijte svou fantazii a dovednosti k vymýšlení výzev na míru vaší úrovni."
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Galerie stěny",
+    "subtitle": "Fotky stěny s očíslovanými bouldery. Použijte je jako průvodce při lezení.",
+    "placeholder": "Foto již brzy",
+    "sections": {
+      "velky-previs": "Velký převis",
+      "maly-previs": "Malý převis",
+      "rovina": "Plotna",
+      "mala-rovina": "Malá Plotna"
+    }
+  },
+  "footer": {
+    "location": "Hranice, Česká republika",
+    "rights": "Všechna práva vyhrazena."
+  }
+}

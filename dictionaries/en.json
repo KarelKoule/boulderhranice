@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "title": "Boulder Hranice",
+    "description": "Outdoor artificial bouldering wall in Hranice"
+  },
+  "header": {
+    "title": "Boulder Hranice",
+    "nav": {
+      "howTo": "How to Boulder",
+      "gallery": "Wall Gallery"
+    }
+  },
+  "hero": {
+    "title": "Boulder Hranice",
+    "subtitle": "Outdoor artificial bouldering wall",
+    "cta": "View the Wall"
+  },
+  "howTo": {
+    "title": "How to Boulder",
+    "intro": "Bouldering is climbing short walls without a rope. Here's everything you need to know to get started.",
+    "steps": [
+      {
+        "title": "What Is Bouldering?",
+        "description": "Bouldering is a form of climbing performed on low walls (up to ~4 meters) without ropes. You climb over a crash pad that cushions your falls."
+      },
+      {
+        "title": "Start Position",
+        "description": "Every boulder problem starts with both hands on the designated starting hold(s). Your feet can be placed on any hold from the route (same color/label)."
+      },
+      {
+        "title": "Topping Out",
+        "description": "A boulder is successfully completed when you hold the final (top) hold with both hands in a controlled, stable position."
+      },
+      {
+        "title": "Follow the Colors",
+        "description": "Each boulder problem is marked with holds of the same color or with numbered tags. Only use the holds that belong to your route."
+      },
+      {
+        "title": "Falling Safely",
+        "description": "When you fall, try to land on both feet with bent knees on the crash pad. Avoid reaching out with your hands to break a fall."
+      },
+      {
+        "title": "Improvise Your Own Route",
+        "description": "The wall is full of holds — you don't have to stick to the marked problems. Pick any holds you like and create your own route. Use your imagination and skill to design challenges that match your level."
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Wall Gallery",
+    "subtitle": "Photos of the wall with numbered boulder problems. Use these as your guide when climbing.",
+    "placeholder": "Photo coming soon",
+    "sections": {
+      "velky-previs": "Big Overhang",
+      "maly-previs": "Small Overhang",
+      "rovina": "Flat Wall",
+      "mala-rovina": "Small Flat Wall"
+    }
+  },
+  "footer": {
+    "location": "Hranice, Czech Republic",
+    "rights": "All rights reserved."
+  }
+}
