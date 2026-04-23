@@ -20,8 +20,34 @@ jobs:
 
       - run: bun run test
 
+  integration:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Cache Supabase Docker images
+        uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+
+      - run: bun install --frozen-lockfile
+
+      - run: supabase start
+
+      - run: supabase db reset
+
+      - run: bun run test:integration
+
+      - run: supabase stop
+
   deploy:
-    needs: ci
+    needs: [ci, integration]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:

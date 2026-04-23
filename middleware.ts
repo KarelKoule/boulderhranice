@@ -1,7 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { i18n } from "./i18n-config";
+import { updateSession } from "@/lib/supabase/middleware";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
+  const response = await updateSession(request);
+
   const { pathname } = request.nextUrl;
 
   const hasLocale = i18n.locales.some(
@@ -9,7 +12,7 @@ export function middleware(request: NextRequest) {
       pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
-  if (hasLocale) return NextResponse.next();
+  if (hasLocale) return response;
 
   const acceptLanguage = request.headers.get("accept-language");
   let preferredLocale: string = i18n.defaultLocale;
@@ -21,10 +24,11 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  request.nextUrl.pathname = `/${preferredLocale}${pathname}`;
-  return NextResponse.redirect(request.nextUrl);
+  const url = request.nextUrl.clone();
+  url.pathname = `/${preferredLocale}${pathname}`;
+  return NextResponse.redirect(url);
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|images).*)"],
+  matcher: ["/((?!api|auth|_next/static|_next/image|favicon.ico|images).*)"],
 };

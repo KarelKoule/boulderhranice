@@ -7,7 +7,8 @@
     "title": "Boulder Hranice",
     "nav": {
       "howTo": "How to Boulder",
-      "gallery": "Wall Gallery"
+      "gallery": "Wall Gallery",
+      "boulders": "Boulders"
     }
   },
   "hero": {
@@ -48,13 +49,27 @@
   "gallery": {
     "title": "Wall Gallery",
     "subtitle": "Photos of the wall with numbered boulder problems. Use these as your guide when climbing.",
-    "placeholder": "Photo coming soon",
     "sections": {
       "velky-previs": "Big Overhang",
       "maly-previs": "Small Overhang",
       "rovina": "Flat Wall",
       "mala-rovina": "Small Flat Wall"
     }
+  },
+  "boulders": {
+    "title": "Boulder Problems",
+    "subtitle": "Browse and rate all boulder problems on the wall.",
+    "rating": "Rating",
+    "noRating": "Not rated yet",
+    "loginToRate": "Log in to rate",
+    "suggestGrade": "Suggest grade",
+    "loginToGrade": "Log in to suggest grade",
+    "noBoulders": "No boulder problems yet."
+  },
+  "auth": {
+    "signInWithGoogle": "Sign in with Google",
+    "signInWithApple": "Sign in with Apple",
+    "signOut": "Sign out"
   },
   "footer": {
     "location": "Hranice, Czech Republic",
