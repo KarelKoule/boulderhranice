@@ -36,6 +36,12 @@ export default function Header({ dict, user, authDict }: Props) {
           >
             {dict.nav.boulders}
           </a>
+          <a
+            href="#map"
+            className="text-sm text-stone-400 transition-colors hover:text-glow"
+          >
+            {dict.nav.map}
+          </a>
           {authDict && (
             user ? (
               <AuthStatus user={user} signOutLabel={authDict.signOut} />

@@ -7,6 +7,7 @@ import HeroSection from "./components/HeroSection";
 import HowToSection from "./components/HowToSection";
 import WallGallerySection from "./components/WallGallerySection";
 import BouldersSection from "./components/BouldersSection";
+import MapSection from "./components/MapSection";
 import Footer from "./components/Footer";
 
 type Props = {
@@ -59,6 +60,7 @@ export default async function Page({ params }: Props) {
           ascentCounts={ascentCounts}
           isAuthenticated={user !== null}
         />
+        <MapSection dict={dict.map} />
       </main>
       <Footer dict={dict.footer} />
     </>
