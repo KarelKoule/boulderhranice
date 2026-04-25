@@ -60,16 +60,16 @@
   },
   "boulders": {
     "title": "Bouldery",
-    "subtitle": "Prohlédněte si a ohodnoťte všechny bouldery na stěně.",
+    "subtitle": "Prohlédni si a ohodnoť všechny bouldery na stěně.",
     "rating": "Hodnocení",
     "noRating": "Zatím bez hodnocení",
-    "loginToRate": "Pro hodnocení se přihlaste",
+    "loginToRate": "Pro hodnocení se přihlas",
     "suggestGrade": "Navrhnout obtížnost",
-    "loginToGrade": "Pro návrh obtížnosti se přihlaste",
+    "loginToGrade": "Pro návrh obtížnosti se přihlas",
     "top": "Vylezeno",
     "topped": "Vylezeno ✓",
     "toppedCount": "Přelezeno {count}x",
-    "loginToTop": "Pro označení přelezu se přihlaste",
+    "loginToTop": "Pro označení přelezu se přihlas",
     "noBoulders": "Zatím žádné bouldery."
   },
   "auth": {
