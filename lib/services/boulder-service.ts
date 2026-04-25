@@ -18,8 +18,14 @@ export class BoulderService {
     private readonly gradeRepo: UserGradeRepository,
   ) {}
 
-  listAll(): Promise<Boulder[]> {
-    return this.boulderRepo.findAll();
+  async listAll(): Promise<Boulder[]> {
+    const boulders = await this.boulderRepo.findAll();
+    return boulders.sort((a, b) => {
+      const numA = parseInt(a.name, 10);
+      const numB = parseInt(b.name, 10);
+      if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+      return a.name.localeCompare(b.name);
+    });
   }
 
   getById(id: string): Promise<Boulder | null> {

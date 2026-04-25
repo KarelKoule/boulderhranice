@@ -17,12 +17,10 @@ export default function LoginButton({ provider, label }: Props) {
     const supabase = createBrowserSupabaseClient();
     const redirectTo = `${window.location.origin}/auth/callback?locale=${locale}`;
 
-    console.log("handleSignIn called");
-    const { data, error } = await supabase.auth.signInWithOAuth({
+    await supabase.auth.signInWithOAuth({
       provider,
       options: { redirectTo },
     });
-    console.log("OAuth result:", { data, error });
   }
 
   return (

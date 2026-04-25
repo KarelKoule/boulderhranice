@@ -22,12 +22,16 @@ export default function AuthStatus({ user, signOutLabel }: Props) {
 
   return (
     <div className="flex items-center gap-3">
-      {user.avatarUrl && (
+      {user.avatarUrl ? (
         <img
           src={user.avatarUrl}
           alt={user.displayName}
           className="h-6 w-6 rounded-full"
         />
+      ) : (
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-xs font-medium text-stone-300">
+          {user.displayName.charAt(0).toUpperCase()}
+        </span>
       )}
       <span className="text-sm text-stone-300">{user.displayName}</span>
       <button
