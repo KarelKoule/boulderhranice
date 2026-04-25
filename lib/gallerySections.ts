@@ -7,3 +7,4 @@ export const GALLERY_SECTIONS = [
 
 export type GallerySectionKey = (typeof GALLERY_SECTIONS)[number]["key"];
 
+

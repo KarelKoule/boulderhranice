@@ -7,7 +7,8 @@
     "title": "Boulder Hranice",
     "nav": {
       "howTo": "Jak bouldrovat",
-      "gallery": "Galerie stěny"
+      "gallery": "Galerie stěny",
+      "boulders": "Bouldery"
     }
   },
   "hero": {
@@ -48,13 +49,31 @@
   "gallery": {
     "title": "Galerie stěny",
     "subtitle": "Fotky stěny s očíslovanými bouldery. Použijte je jako průvodce při lezení.",
-    "placeholder": "Foto již brzy",
     "sections": {
       "velky-previs": "Velký převis",
       "maly-previs": "Malý převis",
       "rovina": "Plotna",
       "mala-rovina": "Malá Plotna"
     }
+  },
+  "boulders": {
+    "title": "Bouldery",
+    "subtitle": "Prohlédněte si a ohodnoťte všechny bouldery na stěně.",
+    "rating": "Hodnocení",
+    "noRating": "Zatím bez hodnocení",
+    "loginToRate": "Pro hodnocení se přihlaste",
+    "suggestGrade": "Navrhnout obtížnost",
+    "loginToGrade": "Pro návrh obtížnosti se přihlaste",
+    "top": "Vylezeno",
+    "topped": "Vylezeno ✓",
+    "toppedCount": "Přelezeno {count}x",
+    "loginToTop": "Pro označení přelezu se přihlaste",
+    "noBoulders": "Zatím žádné bouldery."
+  },
+  "auth": {
+    "signInWithGoogle": "Přihlásit přes Google",
+    "signInWithApple": "Přihlásit přes Apple",
+    "signOut": "Odhlásit se"
   },
   "footer": {
     "location": "Hranice, Česká republika",
