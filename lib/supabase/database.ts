@@ -34,6 +34,32 @@ export type Database = {
   }
   public: {
     Tables: {
+      ascents: {
+        Row: {
+          boulder_id: string
+          created_at: string
+          user_id: string
+        }
+        Insert: {
+          boulder_id: string
+          created_at?: string
+          user_id: string
+        }
+        Update: {
+          boulder_id?: string
+          created_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ascents_boulder_id_fkey"
+            columns: ["boulder_id"]
+            isOneToOne: false
+            referencedRelation: "boulders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       boulders: {
         Row: {
           average_rating: number

@@ -13,6 +13,8 @@ type Props = {
   userRatings: Record<string, Stars>;
   gradeDistributions: Record<string, GradeDistribution>;
   userGrades: Record<string, Grade>;
+  userAscents: Set<string>;
+  ascentCounts: Record<string, number>;
   user: UserProfile | null;
 };
 
@@ -23,6 +25,8 @@ export default function BouldersSection({
   userRatings,
   gradeDistributions,
   userGrades,
+  userAscents,
+  ascentCounts,
   user,
 }: Props) {
   return (
@@ -49,6 +53,8 @@ export default function BouldersSection({
             userRatings={userRatings}
             gradeDistributions={gradeDistributions}
             userGrades={userGrades}
+            userAscents={userAscents}
+            ascentCounts={ascentCounts}
             isAuthenticated={user !== null}
           />
         </div>

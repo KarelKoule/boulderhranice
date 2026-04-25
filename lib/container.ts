@@ -4,6 +4,7 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { SupabaseBoulderRepository } from "@/lib/repositories/supabase-boulder-repository";
 import { SupabaseRatingRepository } from "@/lib/repositories/supabase-rating-repository";
 import { SupabaseUserGradeRepository } from "@/lib/repositories/supabase-user-grade-repository";
+import { SupabaseAscentRepository } from "@/lib/repositories/supabase-ascent-repository";
 import { BoulderService } from "@/lib/services/boulder-service";
 import { AuthService } from "@/lib/services/auth-service";
 import type { UserProfile } from "@/lib/types/auth";
@@ -15,6 +16,7 @@ export async function createServices() {
       new SupabaseBoulderRepository(client),
       new SupabaseRatingRepository(client),
       new SupabaseUserGradeRepository(client),
+      new SupabaseAscentRepository(client),
     ),
     authService: new AuthService(client),
   };

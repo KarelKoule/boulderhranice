@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import type { BoulderRepository } from "@/lib/repositories/boulder-repository";
 import type { RatingRepository } from "@/lib/repositories/rating-repository";
 import type { UserGradeRepository } from "@/lib/repositories/user-grade-repository";
+import type { AscentRepository } from "@/lib/repositories/ascent-repository";
 import type { Boulder } from "@/lib/types/boulder";
 import { BoulderService } from "../boulder-service";
 
@@ -40,6 +41,15 @@ function createMockGradeRepo(
   };
 }
 
+function createMockAscentRepo(): AscentRepository {
+  return {
+    upsert: vi.fn(),
+    remove: vi.fn(),
+    countByBoulder: vi.fn().mockResolvedValue({}),
+    findByUser: vi.fn().mockResolvedValue(new Set()),
+  };
+}
+
 const SAMPLE_BOULDER: Boulder = {
   id: "b1",
   name: "Crimpy Corner",
@@ -62,6 +72,7 @@ describe("BoulderService", () => {
         boulderRepo,
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       const result = await service.listAll();
@@ -75,6 +86,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       const result = await service.listAll();
@@ -92,6 +104,7 @@ describe("BoulderService", () => {
         boulderRepo,
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       const result = await service.getById("b1");
@@ -105,6 +118,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       const result = await service.getById("nonexistent");
@@ -128,6 +142,7 @@ describe("BoulderService", () => {
         boulderRepo,
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       const result = await service.create(input);
@@ -152,6 +167,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         ratingRepo,
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       const result = await service.rateBoulder("b1", "u1", 4);
@@ -165,6 +181,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       await expect(
@@ -177,6 +194,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       await expect(
@@ -189,6 +207,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       await expect(
@@ -210,6 +229,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         ratingRepo,
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       const result = await service.getUserRatings("u1", ["b1", "b2"]);
@@ -223,6 +243,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       const result = await service.getUserRatings("u1", ["b1"]);
@@ -246,6 +267,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         gradeRepo,
+        createMockAscentRepo(),
       );
 
       const result = await service.gradeBoulder("b1", "u1", "6A");
@@ -259,6 +281,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         createMockGradeRepo(),
+        createMockAscentRepo(),
       );
 
       await expect(
@@ -277,6 +300,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         gradeRepo,
+        createMockAscentRepo(),
       );
 
       const result = await service.getGradeDistribution("b1");
@@ -296,6 +320,7 @@ describe("BoulderService", () => {
         createMockBoulderRepo(),
         createMockRatingRepo(),
         gradeRepo,
+        createMockAscentRepo(),
       );
 
       const result = await service.getUserGrades("u1", ["b1", "b2"]);

@@ -10,6 +10,8 @@ type Props = {
   userRatings: Record<string, Stars>;
   gradeDistributions: Record<string, GradeDistribution>;
   userGrades: Record<string, Grade>;
+  userAscents: Set<string>;
+  ascentCounts: Record<string, number>;
   isAuthenticated: boolean;
 };
 
@@ -19,6 +21,8 @@ export default function BoulderList({
   userRatings,
   gradeDistributions,
   userGrades,
+  userAscents,
+  ascentCounts,
   isAuthenticated,
 }: Props) {
   if (boulders.length === 0) {
@@ -35,6 +39,8 @@ export default function BoulderList({
           userStars={userRatings[boulder.id] ?? null}
           gradeDistribution={gradeDistributions[boulder.id] ?? {}}
           userGrade={userGrades[boulder.id] ?? null}
+          topped={userAscents.has(boulder.id)}
+          ascentCount={ascentCounts[boulder.id] ?? 0}
           isAuthenticated={isAuthenticated}
         />
       ))}

@@ -43,6 +43,8 @@ vi.mock("@/lib/container", () => ({
       getUserRatings: vi.fn().mockResolvedValue({}),
       getGradeDistribution: vi.fn().mockResolvedValue({}),
       getUserGrades: vi.fn().mockResolvedValue({}),
+      getUserAscents: vi.fn().mockResolvedValue(new Set()),
+      getAscentCounts: vi.fn().mockResolvedValue({}),
     },
     authService: {
       getCurrentUser: vi.fn().mockResolvedValue(null),

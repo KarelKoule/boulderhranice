@@ -64,6 +64,10 @@
     "loginToRate": "Pro hodnocení se přihlaste",
     "suggestGrade": "Navrhnout obtížnost",
     "loginToGrade": "Pro návrh obtížnosti se přihlaste",
+    "top": "Vylezeno",
+    "topped": "Vylezeno ✓",
+    "toppedCount": "Přelezeno {count}x",
+    "loginToTop": "Pro označení přelezu se přihlaste",
     "noBoulders": "Zatím žádné bouldery."
   },
   "auth": {

@@ -64,6 +64,10 @@
     "loginToRate": "Log in to rate",
     "suggestGrade": "Suggest grade",
     "loginToGrade": "Log in to suggest grade",
+    "top": "Top",
+    "topped": "Topped",
+    "toppedCount": "Topped {count}x",
+    "loginToTop": "Log in to mark as topped",
     "noBoulders": "No boulder problems yet."
   },
   "auth": {

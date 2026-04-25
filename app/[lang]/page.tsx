@@ -32,12 +32,14 @@ export default async function Page({ params }: Props) {
 
   const boulderIds = boulders.map((b) => b.id);
 
-  const [userRatings, gradeDistributions, userGrades] = await Promise.all([
+  const [userRatings, gradeDistributions, userGrades, userAscents, ascentCounts] = await Promise.all([
     user ? boulderService.getUserRatings(user.id, boulderIds) : {},
     Promise.all(
       boulders.map(async (b) => [b.id, await boulderService.getGradeDistribution(b.id)] as const),
     ).then(Object.fromEntries),
     user ? boulderService.getUserGrades(user.id, boulderIds) : {},
+    user ? boulderService.getUserAscents(user.id, boulderIds) : new Set<string>(),
+    boulderService.getAscentCounts(boulderIds),
   ]);
 
   return (
@@ -54,6 +56,8 @@ export default async function Page({ params }: Props) {
           userRatings={userRatings}
           gradeDistributions={gradeDistributions}
           userGrades={userGrades}
+          userAscents={userAscents}
+          ascentCounts={ascentCounts}
           user={user}
         />
       </main>

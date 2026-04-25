@@ -1,6 +1,7 @@
 import type { BoulderRepository } from "@/lib/repositories/boulder-repository";
 import type { RatingRepository } from "@/lib/repositories/rating-repository";
 import type { UserGradeRepository } from "@/lib/repositories/user-grade-repository";
+import type { AscentRepository } from "@/lib/repositories/ascent-repository";
 import type {
   Boulder,
   CreateBoulderInput,
@@ -16,6 +17,7 @@ export class BoulderService {
     private readonly boulderRepo: BoulderRepository,
     private readonly ratingRepo: RatingRepository,
     private readonly gradeRepo: UserGradeRepository,
+    private readonly ascentRepo: AscentRepository,
   ) {}
 
   async listAll(): Promise<Boulder[]> {
@@ -87,5 +89,21 @@ export class BoulderService {
     boulderIds: string[],
   ): Promise<Record<string, Grade>> {
     return this.gradeRepo.findByUser(userId, boulderIds);
+  }
+
+  topBoulder(boulderId: string, userId: string): Promise<void> {
+    return this.ascentRepo.upsert(boulderId, userId);
+  }
+
+  untopBoulder(boulderId: string, userId: string): Promise<void> {
+    return this.ascentRepo.remove(boulderId, userId);
+  }
+
+  getAscentCounts(boulderIds: string[]): Promise<Record<string, number>> {
+    return this.ascentRepo.countByBoulder(boulderIds);
+  }
+
+  getUserAscents(userId: string, boulderIds: string[]): Promise<Set<string>> {
+    return this.ascentRepo.findByUser(userId, boulderIds);
   }
 }
