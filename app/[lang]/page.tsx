@@ -52,13 +52,12 @@ export default async function Page({ params }: Props) {
         <BouldersSection
           boulders={boulders}
           dict={dict.boulders}
-          authDict={dict.auth}
           userRatings={userRatings}
           gradeDistributions={gradeDistributions}
           userGrades={userGrades}
           userAscents={userAscents}
           ascentCounts={ascentCounts}
-          user={user}
+          isAuthenticated={user !== null}
         />
       </main>
       <Footer dict={dict.footer} />
