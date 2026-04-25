@@ -8,7 +8,8 @@
     "nav": {
       "howTo": "Jak bouldrovat",
       "gallery": "Galerie stěny",
-      "boulders": "Bouldery"
+      "boulders": "Bouldery",
+      "map": "Mapa"
     }
   },
   "hero": {
@@ -18,37 +19,38 @@
   },
   "howTo": {
     "title": "Jak bouldrovat",
-    "intro": "Bouldering je lezení na nízkých stěnách bez lana. Tady je vše, co potřebujete vědět, abyste mohli začít.",
+    "intro": "Bouldering je lezení na nízkých stěnách bez lana. Tady je všechno, co potřebuješ vědět, abys mohl/a začít.",
     "steps": [
       {
         "title": "Co je bouldering?",
-        "description": "Bouldering je forma lezení na nízkých stěnách (do cca 4 metrů) bez lan. Leze se nad crash padem, který tlumí pády."
+        "description": "Bouldering je lezení na nízkých stěnách (do cca 4 metrů) bez lana. Lezeš nad crash padem, který ti ztlumí pád."
       },
       {
         "title": "Startovní pozice",
-        "description": "Každý boulder začíná oběma rukama na označených startovních chytech. Nohy mohou být na libovolných chytech patřících k boulderu (stejná barva/značení)."
+        "description": "Každý boulder začínáš oběma rukama na označených startovních chytech. Nohy můžeš dát na libovolné chyty z boulderu (stejná barva/značení)."
       },
       {
         "title": "Dokončení boulderu",
-        "description": "Boulder je úspěšně zdolán, když držíte finální (vrchní) chyt oběma rukama v kontrolované, stabilní pozici."
+        "description": "Boulder máš zdolaný, když držíš finální (vrchní) chyt oběma rukama v kontrolované, stabilní pozici."
       },
       {
-        "title": "Sledujte barvy",
-        "description": "Každý boulder je označen chyty stejné barvy nebo štítky. Používejte pouze chyty, které patří k vaší cestě."
+        "title": "Sleduj barvy",
+        "description": "Každý boulder má chyty stejné barvy nebo se štítky. Používej jenom chyty, které patří k tvé cestě."
       },
       {
         "title": "Bezpečný pád",
-        "description": "Při pádu se snažte dopadnout na obě nohy s pokrčenými koleny na crash pad. Vyhněte se zachytávání pádu rukama."
+        "description": "Při pádu se snaž dopadnout na obě nohy s pokrčenými koleny na crash pad. Nedávej ruce před sebe, abys zachytil/a pád."
       },
       {
-        "title": "Improvizujte vlastní cestu",
-        "description": "Stěna je plná chytů — nemusíte se držet pouze označených boulderů. Vyberte si libovolné chyty a vytvořte si vlastní cestu. Použijte svou fantazii a dovednosti k vymýšlení výzev na míru vaší úrovni."
+        "title": "Vymysli si vlastní cestu",
+        "description": "Stěna je plná chytů — nemusíš lézt jen označené bouldery. Vyber si libovolné chyty a vytvoř si vlastní cestu. Pusť fantazii na špacír a vymysli si výzvu na míru."
       }
     ]
   },
   "gallery": {
     "title": "Galerie stěny",
-    "subtitle": "Fotky stěny s očíslovanými bouldery. Použijte je jako průvodce při lezení.",
+    "subtitle": "Fotky stěny s očíslovanými bouldery. Použij je jako průvodce při lezení.",
+    "placeholder": "Foto již brzy",
     "sections": {
       "velky-previs": "Velký převis",
       "maly-previs": "Malý převis",
@@ -74,6 +76,11 @@
     "signInWithGoogle": "Přihlásit přes Google",
     "signInWithApple": "Přihlásit přes Apple",
     "signOut": "Odhlásit se"
+  },
+  "map": {
+    "title": "Kde nás najdeš",
+    "subtitle": "Stěna se nachází ve sportovním areálu v Hranicích.",
+    "openInMaps": "Otevřít v mapách →"
   },
   "footer": {
     "location": "Hranice, Česká republika",

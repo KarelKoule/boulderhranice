@@ -8,7 +8,8 @@
     "nav": {
       "howTo": "How to Boulder",
       "gallery": "Wall Gallery",
-      "boulders": "Boulders"
+      "boulders": "Boulders",
+      "map": "Map"
     }
   },
   "hero": {
@@ -74,6 +75,11 @@
     "signInWithGoogle": "Sign in with Google",
     "signInWithApple": "Sign in with Apple",
     "signOut": "Sign out"
+  },
+  "map": {
+    "title": "Where to Find Us",
+    "subtitle": "The wall is located in the sports area in Hranice.",
+    "openInMaps": "Open in maps →"
   },
   "footer": {
     "location": "Hranice, Czech Republic",

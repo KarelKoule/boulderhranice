@@ -2,6 +2,7 @@ import type { Dictionary } from "@/lib/getDictionary";
 import type { UserProfile } from "@/lib/types/auth";
 import LanguageSwitcher from "./LanguageSwitcher";
 import AuthStatus from "./AuthStatus";
+import LoginButton from "./LoginButton";
 
 type Props = {
   dict: Dictionary["header"];
@@ -35,8 +36,18 @@ export default function Header({ dict, user, authDict }: Props) {
           >
             {dict.nav.boulders}
           </a>
+          <a
+            href="#map"
+            className="text-sm text-stone-400 transition-colors hover:text-glow"
+          >
+            {dict.nav.map}
+          </a>
           {authDict && (
-            <AuthStatus user={user ?? null} signOutLabel={authDict.signOut} />
+            user ? (
+              <AuthStatus user={user} signOutLabel={authDict.signOut} />
+            ) : (
+              <LoginButton provider="google" label={authDict.signInWithGoogle} />
+            )
           )}
           <LanguageSwitcher />
         </nav>

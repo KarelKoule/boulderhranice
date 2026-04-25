@@ -7,6 +7,7 @@ import HeroSection from "./components/HeroSection";
 import HowToSection from "./components/HowToSection";
 import WallGallerySection from "./components/WallGallerySection";
 import BouldersSection from "./components/BouldersSection";
+import MapSection from "./components/MapSection";
 import Footer from "./components/Footer";
 
 type Props = {
@@ -52,14 +53,14 @@ export default async function Page({ params }: Props) {
         <BouldersSection
           boulders={boulders}
           dict={dict.boulders}
-          authDict={dict.auth}
           userRatings={userRatings}
           gradeDistributions={gradeDistributions}
           userGrades={userGrades}
           userAscents={userAscents}
           ascentCounts={ascentCounts}
-          user={user}
+          isAuthenticated={user !== null}
         />
+        <MapSection dict={dict.map} />
       </main>
       <Footer dict={dict.footer} />
     </>
