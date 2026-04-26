@@ -73,9 +73,25 @@
     "noBoulders": "Zatím žádné bouldery."
   },
   "auth": {
+    "logIn": "Přihlásit se",
     "signInWithGoogle": "Přihlásit přes Google",
     "signInWithApple": "Přihlásit přes Apple",
-    "signOut": "Odhlásit se"
+    "signOut": "Odhlásit se",
+    "emailLabel": "Email",
+    "passwordLabel": "Heslo",
+    "signIn": "Přihlásit",
+    "signUp": "Registrovat",
+    "switchToSignUp": "Nemáš účet? Zaregistruj se",
+    "switchToSignIn": "Už máš účet? Přihlas se",
+    "orContinueWith": "nebo pokračuj přes",
+    "checkEmail": "Zkontroluj svůj email pro potvrzovací odkaz.",
+    "forgotPassword": "Zapomenuté heslo?",
+    "resetPassword": "Obnovit heslo",
+    "resetPasswordSent": "Zkontroluj svůj email pro odkaz na obnovení hesla.",
+    "backToSignIn": "Zpět na přihlášení",
+    "errorInvalidCredentials": "Neplatný email nebo heslo.",
+    "errorEmailTaken": "Účet s tímto emailem již existuje.",
+    "errorGeneric": "Něco se pokazilo. Zkus to prosím znovu."
   },
   "map": {
     "title": "Kde nás najdeš",

@@ -2,7 +2,7 @@ import type { Dictionary } from "@/lib/getDictionary";
 import type { UserProfile } from "@/lib/types/auth";
 import LanguageSwitcher from "./LanguageSwitcher";
 import AuthStatus from "./AuthStatus";
-import LoginButton from "./LoginButton";
+import LoginTrigger from "./LoginTrigger";
 import MobileMenu from "./MobileMenu";
 
 type Props = {
@@ -40,7 +40,7 @@ export default function Header({ dict, user, authDict }: Props) {
             user ? (
               <AuthStatus user={user} signOutLabel={authDict.signOut} />
             ) : (
-              <LoginButton provider="google" label={authDict.signInWithGoogle} />
+              <LoginTrigger label={authDict.logIn} authDict={authDict} />
             )
           )}
           <LanguageSwitcher />
@@ -52,7 +52,7 @@ export default function Header({ dict, user, authDict }: Props) {
               {user ? (
                 <AuthStatus user={user} signOutLabel={authDict.signOut} />
               ) : (
-                <LoginButton provider="google" label={authDict.signInWithGoogle} />
+                <LoginTrigger label={authDict.logIn} authDict={authDict} />
               )}
             </div>
           )}
