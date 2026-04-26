@@ -10,7 +10,7 @@ export default function HeroSection({ dict }: Props) {
       <div className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-surface-dark/80" />
       <div className="relative z-10 mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
-        <h1 className="text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
+        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="bg-gradient-to-r from-white via-white to-glow bg-clip-text text-transparent">
             {dict.title}
           </span>
