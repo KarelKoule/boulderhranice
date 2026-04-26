@@ -72,9 +72,21 @@
     "noBoulders": "No boulder problems yet."
   },
   "auth": {
+    "logIn": "Log in",
     "signInWithGoogle": "Sign in with Google",
     "signInWithApple": "Sign in with Apple",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "switchToSignUp": "Don't have an account? Sign up",
+    "switchToSignIn": "Already have an account? Sign in",
+    "orContinueWith": "or continue with",
+    "checkEmail": "Check your email for a confirmation link.",
+    "errorInvalidCredentials": "Invalid email or password.",
+    "errorEmailTaken": "An account with this email already exists.",
+    "errorGeneric": "Something went wrong. Please try again."
   },
   "map": {
     "title": "Where to Find Us",

@@ -148,7 +148,7 @@ test("renders language switcher", async () => {
   expect(screen.getByText("CZ")).toBeInTheDocument();
 });
 
-test("shows login buttons when not authenticated", async () => {
+test("shows login button when not authenticated", async () => {
   await renderPage();
-  expect(screen.getByText(enDict.auth.signInWithGoogle)).toBeInTheDocument();
+  expect(screen.getByText(enDict.auth.logIn)).toBeInTheDocument();
 });

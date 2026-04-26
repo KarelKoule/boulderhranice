@@ -17,7 +17,7 @@ export class AuthService {
 
     return {
       id: user.id,
-      displayName: profile?.display_name ?? user.user_metadata?.full_name ?? "",
+      displayName: profile?.display_name || user.user_metadata?.full_name || user.email || "",
       avatarUrl: profile?.avatar_url ?? user.user_metadata?.avatar_url ?? null,
     };
   }
