@@ -5,6 +5,7 @@ import LoginDialog from "../components/LoginDialog";
 const mockSignInWithPassword = vi.fn();
 const mockSignUp = vi.fn();
 const mockSignInWithOAuth = vi.fn();
+const mockResetPasswordForEmail = vi.fn();
 const mockRefresh = vi.fn();
 
 vi.mock("next/navigation", () => ({
@@ -18,6 +19,7 @@ vi.mock("@/lib/supabase/client", () => ({
       signInWithPassword: mockSignInWithPassword,
       signUp: mockSignUp,
       signInWithOAuth: mockSignInWithOAuth,
+      resetPasswordForEmail: mockResetPasswordForEmail,
     },
   }),
 }));
@@ -35,6 +37,10 @@ const dict = {
   switchToSignIn: "Already have an account? Sign in",
   orContinueWith: "or continue with",
   checkEmail: "Check your email for a confirmation link.",
+  forgotPassword: "Forgot password?",
+  resetPassword: "Reset password",
+  resetPasswordSent: "Check your email for a password reset link.",
+  backToSignIn: "Back to sign in",
   errorInvalidCredentials: "Invalid email or password.",
   errorEmailTaken: "An account with this email already exists.",
   errorGeneric: "Something went wrong. Please try again.",
@@ -182,4 +188,48 @@ test("calls signInWithOAuth for Google", () => {
     provider: "google",
     options: { redirectTo: expect.stringContaining("/auth/callback?locale=en") },
   });
+});
+
+test("shows forgot password link in sign-in mode", () => {
+  render(<LoginDialog open={true} onClose={vi.fn()} dict={dict} />);
+  expect(screen.getByText("Forgot password?")).toBeInTheDocument();
+});
+
+test("switches to reset password mode", () => {
+  render(<LoginDialog open={true} onClose={vi.fn()} dict={dict} />);
+  fireEvent.click(screen.getByText("Forgot password?"));
+  expect(screen.getByRole("heading", { name: "Reset password" })).toBeInTheDocument();
+  expect(screen.getByText("Back to sign in")).toBeInTheDocument();
+  expect(screen.queryByText("Password")).not.toBeInTheDocument();
+});
+
+test("calls resetPasswordForEmail on submit in reset mode", async () => {
+  mockResetPasswordForEmail.mockResolvedValue({ error: null });
+
+  render(<LoginDialog open={true} onClose={vi.fn()} dict={dict} />);
+  fireEvent.click(screen.getByText("Forgot password?"));
+
+  fireEvent.change(screen.getByLabelText("Email"), { target: { value: "reset@example.com" } });
+  fireEvent.submit(screen.getByRole("dialog").querySelector("form")!);
+
+  await waitFor(() => {
+    expect(mockResetPasswordForEmail).toHaveBeenCalledWith(
+      "reset@example.com",
+      { redirectTo: expect.stringContaining("/auth/callback?locale=en") },
+    );
+  });
+
+  await waitFor(() => {
+    expect(screen.getByText("Check your email for a password reset link.")).toBeInTheDocument();
+  });
+});
+
+test("navigates back to sign-in from reset password", () => {
+  render(<LoginDialog open={true} onClose={vi.fn()} dict={dict} />);
+  fireEvent.click(screen.getByText("Forgot password?"));
+  expect(screen.getByRole("heading", { name: "Reset password" })).toBeInTheDocument();
+
+  fireEvent.click(screen.getByText("Back to sign in"));
+  expect(screen.getByText("Password")).toBeInTheDocument();
+  expect(screen.getByText("Forgot password?")).toBeInTheDocument();
 });

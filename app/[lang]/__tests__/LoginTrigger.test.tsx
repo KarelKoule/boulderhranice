@@ -13,6 +13,7 @@ vi.mock("@/lib/supabase/client", () => ({
       signInWithPassword: vi.fn(),
       signUp: vi.fn(),
       signInWithOAuth: vi.fn(),
+      resetPasswordForEmail: vi.fn(),
     },
   }),
 }));
@@ -30,6 +31,10 @@ const authDict = {
   switchToSignIn: "Already have an account? Sign in",
   orContinueWith: "or continue with",
   checkEmail: "Check your email for a confirmation link.",
+  forgotPassword: "Forgot password?",
+  resetPassword: "Reset password",
+  resetPasswordSent: "Check your email for a password reset link.",
+  backToSignIn: "Back to sign in",
   errorInvalidCredentials: "Invalid email or password.",
   errorEmailTaken: "An account with this email already exists.",
   errorGeneric: "Something went wrong. Please try again.",

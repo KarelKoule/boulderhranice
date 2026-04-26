@@ -22,7 +22,7 @@ export default function LoginDialog({ open, onClose, dict }: Props) {
   const pathname = usePathname();
   const locale = pathname.split("/")[1] ?? "en";
 
-  const [mode, setMode] = useState<"signIn" | "signUp">("signIn");
+  const [mode, setMode] = useState<"signIn" | "signUp" | "resetPassword">("signIn");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -68,6 +68,19 @@ export default function LoginDialog({ open, onClose, dict }: Props) {
     setSuccess(null);
   }
 
+  function handleForgotPassword() {
+    setMode("resetPassword");
+    setPassword("");
+    setError(null);
+    setSuccess(null);
+  }
+
+  function handleBackToSignIn() {
+    setMode("signIn");
+    setError(null);
+    setSuccess(null);
+  }
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
@@ -75,6 +88,18 @@ export default function LoginDialog({ open, onClose, dict }: Props) {
     setLoading(true);
 
     const supabase = createBrowserSupabaseClient();
+
+    if (mode === "resetPassword") {
+      const redirectTo = `${window.location.origin}/auth/callback?locale=${locale}`;
+      const { error: err } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
+      setLoading(false);
+      if (err) {
+        setError(dict.errorGeneric);
+        return;
+      }
+      setSuccess(dict.resetPasswordSent);
+      return;
+    }
 
     if (mode === "signIn") {
       const { error: err } = await supabase.auth.signInWithPassword({ email, password });
@@ -144,7 +169,7 @@ export default function LoginDialog({ open, onClose, dict }: Props) {
         </button>
 
         <h2 className="text-xl font-bold text-white">
-          {mode === "signIn" ? dict.signIn : dict.signUp}
+          {mode === "resetPassword" ? dict.resetPassword : mode === "signIn" ? dict.signIn : dict.signUp}
         </h2>
 
         <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3">
@@ -158,17 +183,19 @@ export default function LoginDialog({ open, onClose, dict }: Props) {
               className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder-stone-600 outline-none transition-colors focus:border-glow"
             />
           </label>
-          <label className="flex flex-col gap-1">
-            <span className="text-sm text-stone-400">{dict.passwordLabel}</span>
-            <input
-              type="password"
-              required
-              minLength={6}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder-stone-600 outline-none transition-colors focus:border-glow"
-            />
-          </label>
+          {mode !== "resetPassword" && (
+            <label className="flex flex-col gap-1">
+              <span className="text-sm text-stone-400">{dict.passwordLabel}</span>
+              <input
+                type="password"
+                required
+                minLength={6}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder-stone-600 outline-none transition-colors focus:border-glow"
+              />
+            </label>
+          )}
 
           {error && (
             <p className="text-sm text-red-400">{error}</p>
@@ -182,17 +209,38 @@ export default function LoginDialog({ open, onClose, dict }: Props) {
             disabled={loading}
             className="mt-1 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-hover disabled:opacity-50"
           >
-            {mode === "signIn" ? dict.signIn : dict.signUp}
+            {mode === "resetPassword" ? dict.resetPassword : mode === "signIn" ? dict.signIn : dict.signUp}
           </button>
         </form>
 
-        <button
-          type="button"
-          onClick={handleToggleMode}
-          className="mt-3 text-sm text-stone-500 transition-colors hover:text-glow"
-        >
-          {mode === "signIn" ? dict.switchToSignUp : dict.switchToSignIn}
-        </button>
+        {mode === "resetPassword" ? (
+          <button
+            type="button"
+            onClick={handleBackToSignIn}
+            className="mt-3 text-sm text-stone-500 transition-colors hover:text-glow"
+          >
+            {dict.backToSignIn}
+          </button>
+        ) : (
+          <div className="mt-3 flex flex-col gap-1">
+            <button
+              type="button"
+              onClick={handleToggleMode}
+              className="text-left text-sm text-stone-500 transition-colors hover:text-glow"
+            >
+              {mode === "signIn" ? dict.switchToSignUp : dict.switchToSignIn}
+            </button>
+            {mode === "signIn" && (
+              <button
+                type="button"
+                onClick={handleForgotPassword}
+                className="text-left text-sm text-stone-500 transition-colors hover:text-glow"
+              >
+                {dict.forgotPassword}
+              </button>
+            )}
+          </div>
+        )}
 
         <div className="mt-5 flex items-center gap-3">
           <div className="h-px flex-1 bg-white/10" />
