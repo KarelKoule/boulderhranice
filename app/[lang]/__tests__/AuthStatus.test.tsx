@@ -1,6 +1,11 @@
+import { createElement } from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, expect, test, vi } from "vitest";
 import AuthStatus from "../components/AuthStatus";
+
+vi.mock("next/image", () => ({
+  default: (props: Record<string, unknown>) => createElement("img", props),
+}));
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ refresh: vi.fn() }),

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { createBrowserSupabaseClient } from "@/lib/supabase/client";
 import type { UserProfile } from "@/lib/types/auth";
@@ -23,9 +24,11 @@ export default function AuthStatus({ user, signOutLabel }: Props) {
   return (
     <div className="flex items-center gap-3">
       {user.avatarUrl ? (
-        <img
+        <Image
           src={user.avatarUrl}
           alt={user.displayName}
+          width={24}
+          height={24}
           className="h-6 w-6 rounded-full"
         />
       ) : (
