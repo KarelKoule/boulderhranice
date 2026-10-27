@@ -17,6 +17,13 @@
     "subtitle": "Venkovní umělá boulderová stěna",
     "cta": "Prohlédnout stěnu"
   },
+  "crux": {
+    "title": "Aplikace Crux",
+    "description": "Nové bouldery najdeš a přidáš v mobilní aplikaci Crux. Po instalaci v aplikaci vyhledej spot \"Hranice boulder\", najdeš tu připravené problémy a můžeš přidat vlastní.",
+    "cta": "Stáhnout Crux",
+    "scan": "Naskenuj a stáhni",
+    "qrAlt": "QR kód odkazující na aplikaci Crux na Google Play"
+  },
   "howTo": {
     "title": "Jak bouldrovat",
     "intro": "Bouldering je lezení na nízkých stěnách bez lana. Tady je všechno, co potřebuješ vědět, abys mohl/a začít.",

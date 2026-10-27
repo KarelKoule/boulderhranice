@@ -17,6 +17,13 @@
     "subtitle": "Outdoor artificial bouldering wall",
     "cta": "View the Wall"
   },
+  "crux": {
+    "title": "Crux app",
+    "description": "New boulders can be found and added with the free Crux mobile app. After installing, search for the \"Hranice boulder\" spot in the app to find the problems set here and add your own.",
+    "cta": "Get Crux",
+    "scan": "Scan to download",
+    "qrAlt": "QR code linking to the Crux app on Google Play"
+  },
   "howTo": {
     "title": "How to Boulder",
     "intro": "Bouldering is climbing short walls without a rope. Here's everything you need to know to get started.",
