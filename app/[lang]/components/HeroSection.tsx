@@ -1,10 +1,12 @@
 import type { Dictionary } from "@/lib/getDictionary";
+import CruxPromo from "./CruxPromo";
 
 type Props = {
   dict: Dictionary["hero"];
+  cruxDict: Dictionary["crux"];
 };
 
-export default function HeroSection({ dict }: Props) {
+export default function HeroSection({ dict, cruxDict }: Props) {
   return (
     <section className="relative flex min-h-[60vh] items-center justify-center bg-surface-dark text-white">
       <div className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center opacity-20" />
@@ -24,6 +26,7 @@ export default function HeroSection({ dict }: Props) {
         >
           {dict.cta}
         </a>
+        <CruxPromo dict={cruxDict} />
       </div>
     </section>
   );

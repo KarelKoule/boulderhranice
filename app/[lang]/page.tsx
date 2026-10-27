@@ -47,7 +47,7 @@ export default async function Page({ params }: Props) {
     <>
       <Header dict={dict.header} user={user} authDict={dict.auth} />
       <main>
-        <HeroSection dict={dict.hero} />
+        <HeroSection dict={dict.hero} cruxDict={dict.crux} />
         <HowToSection dict={dict.howTo} />
         <WallGallerySection dict={dict.gallery} />
         <BouldersSection

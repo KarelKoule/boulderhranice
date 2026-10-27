@@ -152,3 +152,17 @@ test("shows login button when not authenticated", async () => {
   await renderPage();
   expect(screen.getByText(enDict.auth.logIn)).toBeInTheDocument();
 });
+
+test("renders Crux app promo with link to download", async () => {
+  await renderPage();
+  expect(
+    screen.getByRole("heading", { level: 2, name: enDict.crux.title }),
+  ).toBeInTheDocument();
+  expect(screen.getByAltText("Crux logo")).toBeInTheDocument();
+  expect(screen.getByAltText(enDict.crux.qrAlt)).toBeInTheDocument();
+  expect(
+    screen.getByRole("link", { name: enDict.crux.cta }),
+  ).toHaveAttribute("href",
+    "https://play.google.com/store/apps/details?id=ca.cruxapp.twa&hl=en",
+  );
+});
